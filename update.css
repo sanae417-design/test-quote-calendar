@@ -1,0 +1,194 @@
+:root {
+  --bg: #fff4eb;
+  --panel: rgba(255, 250, 245, 0.82);
+  --ink: #5c3d2e;
+  --muted: #8a6350;
+  --line: rgba(212, 132, 92, 0.28);
+  --accent: #d4845c;
+  --accent-deep: #c06f48;
+  --ok: #3f7d4e;
+  --err: #a64432;
+  --font: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 70% 45% at 15% 0%, rgba(255, 220, 190, 0.85), transparent 55%),
+    linear-gradient(165deg, #fff4eb, #ffe8d6 50%, #f7d9c4);
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.panel {
+  width: min(100%, 560px);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 2rem 1.6rem 1.5rem;
+  box-shadow: 0 16px 36px rgba(180, 120, 80, 0.12);
+}
+
+header {
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+}
+
+h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.lead {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.steps {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.95rem 1rem;
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.field-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+input[type="file"] {
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.file-name {
+  font-size: 0.82rem;
+  color: var(--muted);
+  word-break: break-all;
+}
+
+.preview {
+  margin-bottom: 1.25rem;
+}
+
+.preview h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.preview-meta {
+  margin: 0 0 0.7rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.preview-list {
+  margin: 0;
+  padding: 0 0 0 1.2rem;
+  display: grid;
+  gap: 0.55rem;
+  max-height: 220px;
+  overflow: auto;
+}
+
+.preview-list li {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.preview-list li span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-top: 0.15rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+button {
+  appearance: none;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  border-radius: 999px;
+  padding: 0.72rem 1.25rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+.primary {
+  border: 1px solid rgba(212, 132, 92, 0.45);
+  background: rgba(255, 248, 242, 0.95);
+  color: var(--accent-deep);
+}
+
+.secondary {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+}
+
+.status {
+  min-height: 1.4em;
+  margin: 1rem 0 0.4rem;
+  font-size: 0.9rem;
+}
+
+.status.is-ok {
+  color: var(--ok);
+}
+
+.status.is-err {
+  color: var(--err);
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
