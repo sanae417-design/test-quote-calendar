@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>今日の名言カレンダー</title>
+  <meta name="description" content="毎日ひとつの名言と短い解説。心に響いた言葉を残すアプリ。" />
+  <title>Daily Quotes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet" />
@@ -13,27 +14,60 @@
   <div class="bg-glow" aria-hidden="true"></div>
 
   <main class="app">
-    <header class="date-block">
-      <img class="calendar-icon" src="img/calendar.svg" alt="" width="40" height="40" />
-      <div class="date-text">
-        <p class="date-label" id="dateLabel">—</p>
-        <p class="weekday" id="weekdayLabel">—</p>
-      </div>
-    </header>
+    <button type="button" class="edge-liked" id="likedOpenButton" aria-label="響いた言葉">
+      響いた言葉
+    </button>
 
-    <section class="quote-block" aria-live="polite">
-      <img class="quote-mark" src="img/quote-mark.svg" alt="" width="56" height="42" />
-      <p class="quote" id="quoteText">読み込み中…</p>
-      <img class="divider" src="img/divider.svg" alt="" width="120" height="12" />
-      <p class="description" id="descriptionText"></p>
+    <section class="view" id="dailyView">
+      <header class="date-block">
+        <button type="button" class="icon-button" id="monthlyOpenButton" aria-label="カレンダーを開く">
+          <img class="calendar-icon" src="img/calendar.svg" alt="" width="40" height="40" />
+        </button>
+        <div class="date-text">
+          <p class="date-label" id="dateLabel">—</p>
+          <p class="weekday" id="weekdayLabel">—</p>
+        </div>
+      </header>
+
+      <section class="quote-block" aria-live="polite">
+        <p class="category-chip" id="categoryChip" hidden></p>
+        <img class="quote-mark" src="img/quote-mark.svg" alt="" width="56" height="42" />
+        <p class="quote" id="quoteText">読み込み中…</p>
+        <img class="divider" src="img/divider.svg" alt="" width="120" height="12" />
+        <p class="description" id="descriptionText"></p>
+      </section>
+
+      <footer class="actions">
+        <button type="button" class="like-button" id="likeButton" hidden>心に響いた</button>
+        <button type="button" class="text-button" id="backToTodayButton" hidden>今日へ戻る</button>
+      </footer>
     </section>
 
-    <footer class="actions">
-      <button type="button" class="quote-button" id="quoteButton">
-        名言ボタン
-      </button>
-    </footer>
+    <section class="view" id="monthlyView" hidden>
+      <header class="month-header">
+        <button type="button" class="text-button" id="prevMonthButton">前の月</button>
+        <h1 class="month-label" id="monthLabel">—</h1>
+        <button type="button" class="text-button" id="nextMonthButton">次の月</button>
+      </header>
+      <div class="weekday-row" aria-hidden="true">
+        <span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span>
+      </div>
+      <div class="month-grid" id="monthGrid"></div>
+      <ul class="legend" id="legend"></ul>
+      <button type="button" class="text-button" id="monthlyToDailyButton">今日の言葉へ</button>
+    </section>
+
+    <section class="view" id="likedView" hidden>
+      <header class="liked-header">
+        <h1>響いた言葉</h1>
+        <button type="button" class="text-button" id="likedBackButton">戻る</button>
+      </header>
+      <p class="empty-liked" id="likedEmpty" hidden>まだ響いた言葉はありません</p>
+      <div class="liked-list" id="likedList"></div>
+    </section>
   </main>
+
+  <p class="privacy-note">記録はこの端末にだけ残ります</p>
 
   <script src="app.js"></script>
 </body>
